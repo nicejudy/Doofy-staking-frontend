@@ -1,7 +1,7 @@
 import Counter from "src/components/counter";
 import { SectionTitle } from "src/components/sectionTitle";
 import data from "src/assets/data/statistics/dataV1";
-import Count from "sections/Count/v1";
+import Count from "src/sections/Count/v1";
 import shapeImg from "src/assets/images/bg/RoadMapV2Fram.png";
 import StatisticsStyleWrapper from "./Statistics.style";
 

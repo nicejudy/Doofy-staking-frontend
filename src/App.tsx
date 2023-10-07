@@ -29,6 +29,7 @@ import { useAccount, useConnect, useNetwork } from "wagmi";
 import StakingThree from "src/pages/staking-3";
 import Leaderboard from "src/pages/leaderboard";
 import Contact from "src/pages/contact";
+import HomeOne from "src/pages/home-one"
 import { DEFAULT_NETWORK } from "./constants/const";
 
 const PREFIX = "App";
@@ -216,7 +217,7 @@ function App() {
               <Suspense fallback={<div></div>}>
                 <QueryParamProvider adapter={ReactRouter6Adapter}>
                   <Routes>
-                    <Route path="/" element={<StakingThree />} />
+                    <Route path="/" element={<HomeOne />} />
                     <Route path="/staking-3" element={<StakingThree />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/leaderboard" element={<Leaderboard />} />
