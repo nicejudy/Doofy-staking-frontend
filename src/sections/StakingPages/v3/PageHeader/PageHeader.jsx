@@ -1,8 +1,13 @@
 import Counter from "src/components/counter";
 import titleShape from "src/assets/images/icons/steps.png";
+import { useAppSelector } from "src/hooks";
 import PageHeaderStyleWrapper from "./PageHeader.style";
 
 const PageHeader = ({ currentPage, pageTitle }) => {
+
+  const totalStaked = useAppSelector(state => state.app.totalStaked);
+  const totalStakedAmount = useAppSelector(state => state.account.totalStakedAmount);
+
   return (
     <PageHeaderStyleWrapper>
       <div className="container">
@@ -28,18 +33,18 @@ const PageHeader = ({ currentPage, pageTitle }) => {
               <h6>
                 Total Stake {" "}
                 <Counter
-                  end={250000.55}
+                  end={totalStaked ? totalStaked : 0}
                   decimal="."
-                  decimals={250000.55 % 1 !== 0 ? "2" : "0"}
+                  decimals={(totalStaked ? totalStaked : 0) % 1 !== 0 ? "2" : "0"}
                   suffix=" DOF"
                 />
               </h6>
               <h6>
                 My Stake {" "}
                 <Counter
-                  end={86.01}
+                  end={totalStakedAmount ? totalStakedAmount : 0}
                   decimal="."
-                  decimals={86.01 % 1 !== 0 ? "2" : "0"}
+                  decimals={(totalStakedAmount ? totalStakedAmount : 0) % 1 !== 0 ? "2" : "0"}
                   suffix=" DOF"
                 /> </h6>
             </div>

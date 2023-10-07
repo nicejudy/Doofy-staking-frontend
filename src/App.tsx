@@ -29,6 +29,7 @@ import { useAccount, useConnect, useNetwork } from "wagmi";
 import StakingThree from "src/pages/staking-3";
 import Leaderboard from "src/pages/leaderboard";
 import Contact from "src/pages/contact";
+import { DEFAULT_NETWORK } from "./constants/const";
 
 const PREFIX = "App";
 
@@ -112,7 +113,7 @@ function App() {
   const { address = "", isConnected } = useAccount();
   const { error: errorMessage } = useConnect();
 
-  const { chain = { id: 5 } } = useNetwork();
+  const { chain = { id: DEFAULT_NETWORK } } = useNetwork();
   const provider = Providers.getStaticProvider(chain.id);
 
 
@@ -220,20 +221,6 @@ function App() {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/leaderboard" element={<Leaderboard />} />
                     <Route path="*" element={<StakingThree />} />
-                    {/* <Route path="/projects-list" element={<ProjectsList />} />
-                    <Route path="/projects-classic-1" element={<ProjectsClassic />} />
-                    <Route path="/projects-grid" element={<ProjectsGrid />} />
-                    <Route path="/projects-calendar" element={<ProjectsCalendar />} />
-                    <Route path="/projects-details-1" element={<ProjectDetails />} />
-                    <Route path="/staking-3" element={<StakingThree />} />
-                    <Route path="/login" element={<Signin />} />
-                    <Route path="/register" element={<Signup />} />
-                    <Route path="/forget-password" element={<ForgetPassword />} />
-                    <Route path="/farming" element={<Farming />} />
-                    <Route path="/leaderboard" element={<Leaderboard />} />
-                    <Route path="/roadmap-details" element={<RoadmapDetails />} />
-                    <Route path="/contact" element={<Contact />} /> */}
-                    {/* <Route path="*" element={<NotFound />} /> */}
                   </Routes>
                 </QueryParamProvider>
               </Suspense>
