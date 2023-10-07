@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
         <meta charset="utf-8" />
         <title>
           {" "}
-          GamFi - Metaverse Web3 IGO Launchpad React JS Template
+          Doofy
         </title>
         <meta name="description" content="" />
         <link rel="shortcut icon" type="image/x-icon" href={favIcon} />
