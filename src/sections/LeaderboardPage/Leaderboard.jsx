@@ -52,7 +52,7 @@ const Leaderboard = () => {
                     })}
                 </div>
                 <div className="leaderboard-pagination">
-                    {sortedData.length > 0 && <Pagination count={Math.round(sortedData.length / pagination)} shape="rounded" onChange={handleChange} />}
+                    {sortedData.length > 0 && <Pagination count={Math.floor(sortedData.length / pagination + 1)} shape="rounded" onChange={handleChange} />}
                 </div>
             </div>
         </LeaderboardStyleWrapper>
