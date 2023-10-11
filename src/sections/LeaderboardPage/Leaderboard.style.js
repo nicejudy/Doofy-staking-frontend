@@ -8,6 +8,24 @@ const LeaderboardStyleWrapper = styled.div`
     display: block;
   }
 
+  .leaderboard-pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    .MuiPaginationItem-root {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      font-family: "Russo One", sans-serif;
+      color: #FF0000; /* Bright Red Color */
+      font-weight: 500;
+      border: 1px solid #2e2f3c;
+      transition: all 0.4s;
+    }
+  }
+
   .leaderboard_list_item {
     display: flex;
     align-items: center;
@@ -18,10 +36,13 @@ const LeaderboardStyleWrapper = styled.div`
 
     li {
       position: relative;
-      width: 20.2%;
+      width: 70%;
       color: #ffffff;
       &:nth-child(1) {
-        width: 15%;
+        width: 10%;
+      }
+      &:nth-child(3) {
+        width: 20%;
       }
 
       &::before {

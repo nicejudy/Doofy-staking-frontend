@@ -10,7 +10,7 @@ const PaginationStyleWrapper = styled.div`
     margin-top: 50px;
   }
 
-  a {
+  div {
     display: flex;
     width: 50px;
     height: 50px;
@@ -21,6 +21,7 @@ const PaginationStyleWrapper = styled.div`
     font-weight: 500;
     border: 1px solid #2e2f3c;
     transition: all 0.4s;
+    cursor: pointer;
 
     svg {
       font-size: 1.3rem;

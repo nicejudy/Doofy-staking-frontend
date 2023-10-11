@@ -170,7 +170,7 @@ const StakingItem = ({
                         </div>
                         <div className="staking_flip_card_front_reward">
                             <h6>Time Left until Claim</h6>
-                            <h5>{timeUntil > 0 ? timeUntil : 0}s</h5>
+                            <h5>{timeUntil > 0 ? stakedAmount[id] ? timeUntil  : 0 : 0}s</h5>
                         </div>
                         <div className="staking_flip_card_front_buttons flip_card_btn">
                             <Button variant="dark" onClick={() => handleStake("restake")} disabled={isPendingTxn(pendingTransactions, "restake")}>

@@ -12,6 +12,25 @@ export const loadAppDetails = createAsyncThunk(
   async ({ provider }: IBaseAsyncThunk, { dispatch }) => {
     const stakingContract = new ethers.Contract(STAKING_ADDRESS, StakingContract__factory.abi, provider);
 
+    const stakerList = await stakingContract.getStakerList();
+
+    let calls_stakers = [];
+
+    let tempStakerList: (string | any)[] = [];
+
+    for (let i = 0; i < stakerList.length; i++) {
+        if (!tempStakerList.includes(stakerList[i])) {
+          calls_stakers.push({
+            address: STAKING_ADDRESS,
+            name: 'stakerAmounts',
+            params: [stakerList[i]]
+          })
+          tempStakerList.push(stakerList[i])
+        }
+    }
+
+    const stakerAmounts = await multicall(StakingContract__factory.abi as any, calls_stakers, provider);
+
     const totalStaked = Math.round(Number(await stakingContract.totalStaked()) / Math.pow(10, TOKEN_DECIMALS));
 
     let calls_staked = [];
@@ -91,7 +110,9 @@ export const loadAppDetails = createAsyncThunk(
       stakedBalance,
       stakingThresholds,
       lockTimestamp,
-      rewardPercentages
+      rewardPercentages,
+      stakerList: tempStakerList, 
+      stakerAmounts
     };
   },
 );
@@ -103,6 +124,8 @@ export interface IAppData {
   stakingThresholds?: number[];
   lockTimestamp?: number[];
   rewardPercentages?: number[];
+  stakerList?: string[];
+  stakerAmounts?: any[];
 }
 
 const initialState: IAppData = {

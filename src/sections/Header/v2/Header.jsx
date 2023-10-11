@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import { useModal } from "utils/ModalContext";
 import { MdNotes, MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { Link } from "@mui/material";
 import NavWrapper from "./Header.style";
 import Button from "src/components/button";
 import MobileMenu from "../MobileMenu/MobileMenu";
@@ -48,7 +49,8 @@ const Header = () => {
                 {/* menu  */}
                 {data?.map((menu, i) => (
                   <li key={i}>
-                    <a href={menu.url}>{menu.title} {menu.subMenus?.length > 0 && <MdOutlineKeyboardArrowDown />}</a>
+                    {/* <a href={menu.url}>{menu.title} {menu.subMenus?.length > 0 && <MdOutlineKeyboardArrowDown />}</a> */}
+                    <Link href={menu.url}>{menu.title}</Link>
 
                     {/* if has subMenu and length is greater than 0 */}
                     {menu.subMenus?.length > 0 && (
