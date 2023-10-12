@@ -217,7 +217,7 @@ function App() {
               <Suspense fallback={<div></div>}>
                 <QueryParamProvider adapter={ReactRouter6Adapter}>
                   <Routes>
-                    <Route path="/" element={<HomeOne />} />
+                    <Route path="/" element={<StakingThree />} />
                     <Route path="/staking-3" element={<StakingThree />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/leaderboard" element={<Leaderboard />} />
