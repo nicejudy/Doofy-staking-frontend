@@ -88,7 +88,7 @@ const Header = () => {
 
                 <div className="wallet_token_list">
                   <a href="# "> <img src={walletIcon1} alt="icon" /> PancakeSwap </a>
-                  <a href="# "> <img src={walletIcon2} alt="icon" />  UniSwap</a>
+                  <a href="https://app.uniswap.org/swap/" target="_blank"> <img src={walletIcon2} alt="icon" />  UniSwap</a>
                   <a href="# "> <img src={walletIcon3} alt="icon" />  CoinMarketCap</a>
                   <a href="#"> <img src={walletIcon4} alt="icon" />  Gate.io</a>
                 </div>
